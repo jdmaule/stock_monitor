@@ -62,13 +62,21 @@
 
         <!-- Display follow.user_id start -->
         <td>
-          <%= follow.user.username %>
+          <% if follow.user.present? %>
+            <a href="/users/<%= follow.user.id %>">
+              <%= follow.user.username %>
+            </a>
+          <% end %>
         </td>
         <!-- Display follow.user_id end -->
 
         <!-- Display follow.stock_id start -->
         <td>
-          <%= follow.stock.ticker %>
+          <% if follow.stock.present? %>
+            <a href="/stocks/<%= follow.stock.id %>">
+              <%= follow.stock.ticker %>
+            </a>
+          <% end %>
         </td>
         <!-- Display follow.stock_id end -->
 

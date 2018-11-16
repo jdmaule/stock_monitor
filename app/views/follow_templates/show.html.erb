@@ -38,7 +38,11 @@
       </dt>
       <!-- Display user_id start -->
       <dd>
-        <%= @follow.user_id %>
+        <% if @follow.user.present? %>
+          <a href="/users/<%= @follow.user_id %>">
+            <%= @follow.user.username %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display user_id end -->
 
@@ -47,7 +51,11 @@
       </dt>
       <!-- Display stock_id start -->
       <dd>
-        <%= @follow.stock_id %>
+        <% if @follow.stock.present? %>
+          <a href="/stocks/<%= @follow.stock_id %>">
+            <%= @follow.stock.ticker %>
+          </a>
+        <% end %>
       </dd>
       <!-- Display stock_id end -->
 

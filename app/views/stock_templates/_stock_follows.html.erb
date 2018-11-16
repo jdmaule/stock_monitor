@@ -10,28 +10,22 @@
   <ul class="list-group list-group-flush">
     <% @stock.follows.each do |follow| %>
       <li class="list-group-item d-flex align-items-center justify-content-between">
-        <!-- Show link start -->
         <a href="/follows/<%= follow.id %>">
           <%= follow.created_at %>
         </a>
-        <!-- Show link end -->
 
-        <!-- Delete link start -->
         <%if current_user == follow.user %>
           <a href="/delete_follow_from_stock/<%= follow.id %>">
             Delete
           </a>
         <% end %>
-        <!-- Delete link end -->
 
       </li>
     <% end %>
 
     <div class="card-footer">
       <div class="collapse" id="stock_follows_new_form">
-        <!-- New associationcollection form start -->
         <%= render partial: "stock_templates/stock_follows_new_form" %>
-        <!-- New associationcollection form end -->
       </div>
     </div>
 

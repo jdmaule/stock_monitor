@@ -17,9 +17,11 @@
         <!-- Show link end -->
 
         <!-- Delete link start -->
-        <a href="/delete_follow_from_stock/<%= follow.id %>">
-          Delete
-        </a>
+        <%if current_user == follow.user %>
+          <a href="/delete_follow_from_stock/<%= follow.id %>">
+            Delete
+          </a>
+        <% end %>
         <!-- Delete link end -->
 
       </li>

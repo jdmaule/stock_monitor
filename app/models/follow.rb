@@ -1,6 +1,9 @@
 class Follow < ApplicationRecord
   # Direct associations
 
+  belongs_to :stock,
+             :counter_cache => true
+
   belongs_to :user
 
   # Indirect associations

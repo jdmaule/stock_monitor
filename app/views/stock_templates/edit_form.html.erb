@@ -1,0 +1,32 @@
+<h1>
+  Edit stock #<%= @stock.id %>
+</h1>
+
+<hr>
+
+<!-- Form stock start -->
+<form action="/update_stock/<%= @stock.id %>" method="post">
+<!-- Form stock end -->
+
+  <!-- Label and input for ticker start -->
+  <div class="form-group">
+    <label for="ticker">
+      Ticker
+    </label>
+
+    <!-- Input for ticker start -->
+    <input type="text" id="ticker" name="ticker" class="form-control" value="<%= @stock.ticker %>">
+    <!-- Input for ticker end -->
+  </div>
+  <!-- Label and input for ticker end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Update stock
+  </button>
+</form>
+
+<hr>
+
+<a href="/stocks">
+  Go back
+</a>

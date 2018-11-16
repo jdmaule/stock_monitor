@@ -1,0 +1,44 @@
+<!-- Validation failure messages -->
+<% if @stock.present? %>
+  <% if @stock.errors.any? %>
+    <% @stock.errors.full_messages.each do |message| %>
+      <div class="alert alert-danger">
+        <%= message %>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h1>
+  Add a new stock
+</h1>
+
+
+<hr>
+
+<!-- Form stock start -->
+<form action="/create_stock" method="post">
+<!-- Form stock end -->
+
+  <!-- Label and input for ticker start -->
+  <div class="form-group">
+    <label for="ticker">
+      Ticker
+    </label>
+
+    <!-- Input for ticker start -->
+    <input type="text" id="ticker" name="ticker" class="form-control" value="<%= @stock.ticker %>">
+    <!-- Input for ticker end -->
+  </div>
+  <!-- Label and input for ticker end -->
+
+  <button class="btn btn-block btn-outline-secondary">
+    Create stock
+  </button>
+</form>
+
+<hr>
+
+<a href="/stocks">
+  Go back
+</a>

@@ -58,7 +58,7 @@ class FollowsController < ApplicationController
   def update_row
     @follow = Follow.find(params.fetch("id_to_modify"))
 
-    @follow.user_id = params.fetch("user_id")
+    
     @follow.stock_id = params.fetch("stock_id")
     @follow.notes = params.fetch("notes")
 

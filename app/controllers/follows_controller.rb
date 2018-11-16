@@ -33,6 +33,22 @@ class FollowsController < ApplicationController
     end
   end
 
+  def create_row_from_stock
+    @follow = Follow.new
+
+    @follow.user_id = params.fetch("user_id")
+    @follow.stock_id = params.fetch("stock_id")
+    @follow.notes = params.fetch("notes")
+
+    if @follow.valid?
+      @follow.save
+
+      redirect_to("/stocks/#{@follow.stock_id}", notice: "Follow created successfully.")
+    else
+      render("follow_templates/new_form_with_errors.html.erb")
+    end
+  end
+
   def edit_form
     @follow = Follow.find(params.fetch("prefill_with_id"))
 

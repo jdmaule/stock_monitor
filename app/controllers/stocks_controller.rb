@@ -1,6 +1,7 @@
 class StocksController < ApplicationController
   def index
-    @stocks = Stock.page(params[:page]).per(10)
+    @q = Stock.ransack(params[:q])
+    @stocks = @q.result(:distinct => true).includes(:follows, :comments).page(params[:page]).per(10)
 
     render("stock_templates/index.html.erb")
   end

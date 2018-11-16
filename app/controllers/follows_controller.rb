@@ -10,7 +10,8 @@ class FollowsController < ApplicationController
   end
 
   def index
-    @follows = current_user.follows.page(params[:page]).per(10)
+    @q = current_user.follows.ransack(params[:q])
+    @follows = @q.result(:distinct => true).includes(:user, :stock).page(params[:page]).per(10)
 
     render("follow_templates/index.html.erb")
   end

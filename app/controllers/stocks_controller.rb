@@ -1,6 +1,6 @@
 class StocksController < ApplicationController
   def index
-    @stocks = Stock.all
+    @stocks = Stock.page(params[:page]).per(10)
 
     render("stock_templates/index.html.erb")
   end

@@ -55,6 +55,22 @@ class FollowsController < ApplicationController
     end
   end
 
+  def destroy_row_from_user
+    @follow = Follow.find(params.fetch("id_to_remove"))
+
+    @follow.destroy
+
+    redirect_to("/users/#{@follow.user_id}", notice: "Follow deleted successfully.")
+  end
+
+  def destroy_row_from_stock
+    @follow = Follow.find(params.fetch("id_to_remove"))
+
+    @follow.destroy
+
+    redirect_to("/stocks/#{@follow.stock_id}", notice: "Follow deleted successfully.")
+  end
+
   def destroy_row
     @follow = Follow.find(params.fetch("id_to_remove"))
 
